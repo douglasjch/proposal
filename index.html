@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Income Tax Proposal</title>
+    <script src="./htmx.min.js"></script>
+    <!-- FontAwesome for the Hamburger Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body> 
+
+ <header>
+        <nav>
+            <!-- Hidden Checkbox for CSS-only Menu -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            
+            <!-- NEW: Invisible backdrop to click away -->
+            <label for="menu-toggle" class="menu-backdrop"></label>
+            
+            <!-- FontAwesome Hamburger Icon -->
+            <label for="menu-toggle" class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <!-- Centered Header Text / Logo -->
+            <div class="logo">Wage Tax Proposal</div>
+            
+            <!-- Hidden Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">blog</a></li>
+            </ul>
+        </nav>
+     
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        
+        <!-- Left Side Wrapper (Holds Main Articles + Bottom Image) -->
+        <div class="left-side-wrapper">
+            
+            <!-- Left Column: Main Articles -->
+            <main class="left-column">
+                <article id="direct" class="post">
+                    <h1>Eliminate Direct Taxes on Wages</h1>
+                    <p>Wage earnings are subject to both direct and indirect taxes. Personal income tax on wages are 
+                        <label for="direct-tax-modal" class="modal-link">direct taxes</label> because these taxes cannot be shifted to others, while 
+                        social security and <label for="indirect-tax-modal" class="modal-link">indirect</label> taxes. 
+                        This proposal seeks to eliminate direct income taxes on wages and earnings while 
+                        keeping the Article 1, section 8, indirect taxes, such as the <dfn><abbr title="Social Security Act">SSA</abbr></dfn> and <dfn><abbr title="Federal Insurance Contributions Act">FICA</abbr></dfn> intact and inforce.
+                    </p>
+                    <p>The ability to <label for="tax-shift-modal" class="modal-link">shift indirect taxes</label> is an essential feature and <em> fun </em> fundament right.</p>
+                </article>
+
+                <article class="post">
+                    <h2>Understanding Flexbox</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio.</p>
+                </article>
+            </main>
+
+            <!-- Image directly below the left column -->
+            <div class="left-bottom-image-container">
+                <img src="./lib/Modernizing_the_American_Tax_Code.png" alt="Proposal">
+            </div>
+
+        </div>
+
+        <!-- Right Side Wrapper (Holds Image + Article List) -->
+        <div class="right-side-wrapper">
+            
+            <!-- Space for Image above the right column -->
+            <div class="right-image-container">
+                <img src="./lib/Direct_Tax_twice_provision.png" alt="Featured Visual">
+            </div>
+
+            <!-- Right Column: Article List -->
+            <aside class="right-column">
+                <h3>Recent Articles</h3>
+                <ul class="article-list">
+                    <li><a href="#direct">Eliminate Direct taxes on Wages</a></li>
+                    <li><a href="#">Returns the income tax to its original intent</a></li>
+                    <li><a href="#">Reduce intrusiveness into personal affairs</a></li>
+                    <li><a href="#">Eliminate 150 million filers</a></li>
+                    <li><a href="#">Significant reduction of administrative costs</a></li>
+                    <li><a href="#">Frees up billions of hours of record keeping</a></li>
+                    <li><a href="#">Promotes Economic Efficiency</a></li>
+                    <li><a href="#">Return to Constitutional intect on taxation</a></li>
+                </ul>
+            </aside>
+            
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Indirect-Taxes.link All rights reserved.</p>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- CHECKBOX MODAL -->    
+    
+    
+    <!-- direct tax -->
+        <input type="checkbox" id="direct-tax-modal" class="modal-checkbox">
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="direct-tax-modal" class="modal-close" title="Close">&times;</label>            
+            <h3>IRS Definition of Direct Taxes</h3>
+            <p>"A tax that cannot be shifted to others, such as the federal income tax."</p>
+            <p><a href="https://apps.irs.gov/app/understandingTaxes/teacher/whys_thm04_les04.jsp#KeyTerms"> www.IRS.gov / Understanding Taxes</a></p>            
+        </div>
+    </div>
+     <!-- indirect tax -->
+        <input type="checkbox" id="indirect-tax-modal" class="modal-checkbox">
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="indirect-tax-modal" class="modal-close" title="Close">&times;</label>            
+            <h3>IRS Definition of Indirect Taxes</h3>
+            <p>"A tax that can be shifted to others, such as business property taxes."</p>
+             <p>" An indirect tax is one that can be passed on-or shifted-to another person or group by the person or business that owes it."</p>
+            <p><a href="https://apps.irs.gov/app/understandingTaxes/teacher/whys_thm04_les04.jsp#KeyTerms"> www.IRS.gov / Understanding Taxes</a></p>            
+        </div>
+    </div>
+     <!-- 1 -->
+        <input type="checkbox" id="tax-shift-modal" class="modal-checkbox">
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="tax-shift-modal" class="modal-close" title="Close">&times;</label>            
+            <h3>American Express Co. v. Michigan, 177 U.S. 404 (1900)</h3>
+            <p>"As the means by which the burdens of taxes may be shifted are as multiform and as various as is the power to contract itself, it follows that the argument relied on, if adopted, would control almost every conceivable form of contract, and render them void if they had the result stated. Thus, the price of all property, the result of all production, the sum of all wages, would be controlled irrevocably by a law levying taxes if such a law forbade a shifting of the burden of the tax and avoided all acts which brought about that result. It cannot be doubted that to adopt by implication the view pressed upon us would be to virtually destroy all freedom of contract, and in its final analyses would deny the existence of all rights of property."</p>
+            <p><a href="https://tile.loc.gov/storage-services/service/ll/usrep/usrep177/usrep177404/usrep177404.pdf">American Express Co. v. Michigan, 177 U.S. 404 (1900)</a></p>            
+        </div>
+    </div>
+     <!-- 2 -->
+        <input type="checkbox" id="2-modal" class="modal-checkbox">
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="2-modal" class="modal-close" title="Close">&times;</label>            
+            <h3>IRS Definition of Direct Taxes</h3>
+            <p>"A tax that cannot be shifted to others, such as the federal income tax."</p>
+            <p><a href="https://apps.irs.gov/app/understandingTaxes/teacher/whys_thm04_les04.jsp#KeyTerms"> IRS.GOV / Understanding Taxes</a></p>            
+        </div>
+    </div>
+    <script>
+        // Find all links inside the mobile menu
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const menuToggle = document.getElementById('menu-toggle');
+
+        // When any link is clicked, uncheck the hidden checkbox
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.checked = false;
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
