@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Income Tax Proposal</title>
-    <script src="./htmx.min.js"></script>
+    <script src="./scripts/htmx.min.js"></script>
     <!-- FontAwesome for the Hamburger Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
  <header>
@@ -38,62 +38,73 @@
         <!-- Left Side Wrapper (Holds Main Articles + Bottom Image) -->
         <div class="left-side-wrapper">
             
-            <!-- Left Column: Main Articles -->
-            <main id="main-post" class="left-column">
-                <article id="direct" class="post">
-                    <h1>Eliminate Direct Taxes on Wages</h1>
-                    <p>Wage earnings are subject to both direct and indirect taxes. The <dfn><abbr title="Internal Revenue Service">IRS</abbr></dfn> classifies the personal income tax on wages as <label for="direct-tax-modal" class="modal-link">direct taxes</label> because 
-                        these taxes cannot be shifted to others, while classifying <dfn><abbr title="Social Security Act">SSA</abbr></dfn> and <dfn><abbr title="Federal Insurance Contributions Act">FICA</abbr></dfn> taxes as <label for="indirect-tax-modal" class="modal-link">indirect</label> taxes.
-                        The Supreme Court in <label for="moore-modal" class="modal-link">Moore vs US (2024)</label> recently reaffirmed the long standing precedent that classifies Social Security and <dfn><abbr title="Federal Insurance Contributions Act">FICA</abbr></dfn> taxes as indirect taxes.  
-                        The ability to <label for="tax-shift-modal" class="modal-link">shift indirect taxes</label> is an <strong>essential feature</strong> and a <strong><em>fundament right!</em></strong>
-                    </p>
-                </article>
-<div id="result"><p>mm</p> </div>
+            <!-- Left Column: Main Articles and Splash Image -->
+            <main id="main-article-container" class="left-column">
 
-                <article class="post">
-                    <h2>The Proposal</h2>
-                    <p>This proposal seeks to eliminate the ct income taxes on wages and earnings while keeping those indirect taxes, such as the Social Security and Federal Insurance Contributions Act, intact and in force. This proposal would eliminate tax filings for <a href="#millions"> </a> 160 million filers, which is the majority of US citizen, while using the income tax as means to capture
-                        the creation wealth with those who make billions.
-                    </p>
-                </article>
-                <button hx-get="/api/lets" hx-target="#result">Say Hello</button>
+                {{ template "article" .DefaultArticle }}
+
             </main>
-
-            <!-- Image directly below the left column -->
-            <div class="left-bottom-image-container">
-                <img src="./lib/Modernizing_the_American_Tax_Code.png" alt="Proposal">
+             <div class="left-bottom-image-container">
+                <img class="left-bottom-image-container" src="./static/images/Modernizing_the_American_Tax_Code.png" alt="Modernize Visual">
             </div>
-
         </div>
+
+
 
         <!-- Right Side Wrapper (Holds Image + Article List) -->
         <div class="right-side-wrapper">
             
             <!-- Space for Image above the right column -->
             <div class="right-image-container">
-                <img src="./lib/Direct_Tax_twice_provision.png" alt="Featured Visual">
+                <img src="./static/images/Direct_Tax_twice_provision.png" alt="Constitutional Limits Visual">
             </div>
 
             <!-- Right Column: Article List -->
             <aside class="right-column">
                 <h3>Recent Articles</h3>
                 <ul class="article-list">
-                    <li><a href="#direct">Eliminate Direct taxes on Wages</a></li>                    
-                    <li><a href="#">Eliminate 160 million tax filings</a></li>
-                    <li><a href="#">Returns the income tax to its original intent</a></li>
-                    <li><a href="#">Returns the income tax to its original intent</a></li>
-                    <li><a href="#">Reduce intrusiveness into personal affairs</a></li>
-                    <li><a href="#">Eliminate 150 million filers</a></li>
-                    <li><a href="#">Significant reduction of administrative costs</a></li>
-                    <li><a href="#">Frees up billions of hours of record keeping</a></li>
-                    <li><a href="#">Promotes Economic Efficiency</a></li>
-                    <li><a href="#">Return to Constitutional intect on taxation</a></li>
+                    <li><a hx-get="/article/eliminate-taxes"
+                       hx-target="#main-article-container">
+                       Eliminate Direct taxes on Wages
+                    </a></li>
+                    <li><a hx-get="/articles/eliminate-filings"
+                       hx-target="#main-article-container">
+                       Eliminate 160 million tax filings
+                    </a></li>
+                    <li><a hx-get="/article/original-intent"
+                       hx-target="#main-article-container">
+                       Constitutional Alignment
+                    </a></li>
+                    <li><a hx-get="/article/reduce-intrusive-affairs"
+                       hx-target="#main-article-container">
+                       Reduce intrusiveness into personal affairs
+                    </a></li>
+                    <li><a hx-get="/article/administrative-costs"
+                       hx-target="#main-article-container">
+                       Significant reduction of administrative costs
+                    </a></li>
+                    <li><a hx-get="/article/record-keeping"
+                       hx-target="#main-article-container">
+                       Frees up billions of hours of record keeping
+                    </a></li>
+                    <li><a hx-get="/article/hylton-sham"
+                       hx-target="#main-article-container">
+                       Hylton vs US sham Court
+                    </a></li>
+                    <li><a hx-get="/article/economic-efficiency"
+                       hx-target="#main-article-container">
+                       Promotes Economic Efficiency
+                    </a></li>
+                    <li><a hx-get="/article/constitutional-intent"
+                       hx-target="#main-article-container">
+                       Return to Constitutional intect on taxation
+                    </a></li>
                 </ul>
             </aside>
             
         </div>
-
     </div>
+
 
     <!-- Footer -->
     <footer>
@@ -101,8 +112,8 @@
     </footer>
 
     <!-- ========================================= -->
-    <!-- CHECKBOX MODAL -->    
-    
+    <!-- CHECKBOX MODALS -->
+    <!-- ========================================= -->
     
     <!-- direct tax -->
         <input type="checkbox" id="direct-tax-modal" class="modal-checkbox">
@@ -143,7 +154,7 @@
             <h3>Moore v. United States (2024)</h3>
             <p>"Article I of the Constitution affords Congress broad “Power To lay and collect Taxes, Duties, Imposts and Excises.” Art. I, §8, cl. 1. 
                 That power includes “‘two great classes of’” taxes—direct taxes and indirect taxes. Brushaber v. Union Pacific R. Co., 240 U. S. 1, 13 (1916).
- Generally speaking, direct taxes are those taxes imposed on persons or property." ...</p>
+                Generally speaking, direct taxes are those taxes imposed on persons or property." ...</p>
             <p>By contrast, indirect taxes are the familiar federal taxes imposed on activities or transactions. That category of taxes includes duties, imposts, and excise taxes, as well as income taxes. U. S. Const., Art. I, §8, cl. 1; Amdt. 16.</p>
             <p><a href="https://www.supremecourt.gov/opinions/23pdf/22-800_jg6o.pdf">Moore v. United States, 602 U.S. 572 (2024)</a></p>            
         </div>
@@ -194,17 +205,11 @@
         </div>
     </div>
     
+    <!-- ========================================= -->
+    <!-- Scipts and ?? -->
+    <!-- ========================================= -->
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     <script>
         // Find all links inside the mobile menu
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -220,4 +225,3 @@
     
 </body>
 </html>
-
