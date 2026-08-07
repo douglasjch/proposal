@@ -1,8 +1,8 @@
 package main
 
 import (
+	// "embed"
 	"html/template"
-	"log"
 	"net/http"
 	"strings"
 )
@@ -11,7 +11,7 @@ import (
 type Article struct {
 	ID      string
 	Title   string
-	Content string
+	Content template.HTML
 }
 
 // Simulated database based on your website's content
@@ -100,6 +100,12 @@ func main() {
 		}
 	})
 
-	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	// Allow a 'static' folder
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	// ==========================================
+
+	// log.Println("Server running on http://localhost:8080")
+	//	log.Fatal(http.ListenAndServe(":8080", nil))
+
 }
